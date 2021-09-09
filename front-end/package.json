@@ -1,0 +1,38 @@
+{
+	"name": "w5_full-stackathon-back-end-tomdaniel",
+	"version": "1.0.0",
+	"description": "<div align=\"center\">\r     <img alt=\"School of Code\" src=\"./images/soc-logo.png\" width=\"60\" />\r </div>\r <h1 align=\"center\">\r   Full Stack - Back End\r </h1>",
+	"main": "recipes_data.js",
+	"scripts": {
+		"test": "jest --setupFiles dotenv/config",
+		"start": "nodemon -r dotenv/config server.js",
+		"dbcreaterecipetable": "node -r dotenv/config ./db/scripts/createTableRecipes.js",
+		"dbcreateingredienttable": "node -r dotenv/config ./db/scripts/createTableIngredients.js",
+		"dbpopulaterecipes": "node -r dotenv/config ./db/scripts/populateRecipes.js",
+		"dbdroptables": "node -r dotenv/config ./db/scripts/dropTable.js",
+		"reset": "node -r dotenv/config ./db/scripts/dropTable.js && node -r dotenv/config ./db/scripts/createTableRecipes.js && node -r dotenv/config ./db/scripts/createTableIngredients.js && node -r dotenv/config ./db/scripts/populateRecipes.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SchoolOfCode/w5_full-stackathon-back-end-tomdaniel.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/SchoolOfCode/w5_full-stackathon-back-end-tomdaniel/issues"
+	},
+	"homepage": "https://github.com/SchoolOfCode/w5_full-stackathon-back-end-tomdaniel#readme",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"jest": "^27.1.0",
+		"morgan": "^1.10.0",
+		"pg": "^8.7.1",
+		"supertest": "^6.1.6"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.12"
+	}
+}
