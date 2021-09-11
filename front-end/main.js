@@ -12,7 +12,7 @@ const content = document.querySelector('#content');
 async function sendIngredient(e) {
 	e.preventDefault();
 	const ingredient = addIngredientForm.value;
-	const response = await fetch('http://localhost:5000/ingredients', {
+	const response = await fetch('https://api-recipes-api.herokuapp.com/ingredients', {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({ ingredient }),
@@ -24,7 +24,7 @@ async function sendIngredient(e) {
  * fetch the ingredients from the db and render the list of ingredients straight away
  */
 async function initialIngredients() {
-	const ingredients = await fetch('http://localhost:5000/ingredients');
+	const ingredients = await fetch('https://api-recipes-api.herokuapp.com/ingredients');
 	const { payload } = await ingredients.json();
 	renderList(payload);
 }
@@ -35,10 +35,10 @@ async function initialIngredients() {
 let recipesToRender = [];
 async function getRecipes() {
 	content.innerHTML = '';
-	const ourIngredients = await fetch('http://localhost:5000/ingredients');
+	const ourIngredients = await fetch('https://api-recipes-api.herokuapp.com/ingredients');
 	const ingredientData = await ourIngredients.json();
 	const ingredients = ingredientData.payload;
-	const ourRecipes = await fetch('http://localhost:5000/recipes');
+	const ourRecipes = await fetch('https://api-recipes-api.herokuapp.com/recipes');
 	const recipeData = await ourRecipes.json();
 	const recipes = recipeData.payload;
 
@@ -79,7 +79,7 @@ function renderList(array) {
 async function deleteIngredient(e) {
 	let id = e.target.parentNode.attributes.dataid.value;
 	console.log(id);
-	await fetch(`http://localhost:5000/ingredients/${id}`, {
+	await fetch(`https://api-recipes-api.herokuapp.com/ingredients/${id}`, {
 		method: 'DELETE',
 		headers: { 'Content-Type': 'application/json' },
 	});
